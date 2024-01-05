@@ -1,0 +1,1140 @@
+\documentclass[12pt, addpoints]{exam}
+\usepackage{xeCJK}
+\setCJKmainfont{Noto Serif CJK TC}[
+  AutoFakeBold=2,
+  BoldFont=Noto Serif CJK TC Bold,
+  ItalicFont=AR PL UKai TW,
+  BoldItalicFont=AR PL UKai TW,
+  BoldItalicFeatures={FakeBold=2}
+]
+\usepackage{amsfonts,amssymb,amsmath, amsthm}
+\usepackage{graphicx}
+\usepackage{systeme}
+\usepackage{pgf,tikz,pgfplots}
+\pgfplotsset{compat=1.15}
+\usepgfplotslibrary{fillbetween}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+\usetikzlibrary{calc}
+
+\usepackage{multicol}
+
+\def \important{\textbf{（重點）}}
+\def \unimportant{\textit{（非重點）}}
+\def \hint#1{(\textit{#1})}
+\def \d{\mathrm{d}}
+\def \arccot{\mathrm{arccot}}
+
+\pointname{分}
+\boxedpoints
+\pointsinrightmargin
+\marginpointname{\textit{分}}
+
+% \renewcommand{\thepartno}{\arabic{partno}}
+% \newcommand{\partlabel}{(\thepartno)}
+
+\pagestyle{headandfoot}
+
+\firstpageheader{《高等數學\textit{（上）}》期末複習題（滿分\numpoints\ 分）\\ 鏡州商貿學院\textit{（新圩）}}{}{姓名：\underline{\hspace{2.5in}}}
+%\firstpageheadrule
+
+\runningheader{鏡州商貿學院\textit{（新圩）}}{}{第 \thepage\ 頁，共 \numpages 頁}
+\runningheadrule
+
+\firstpagefooter{}{}{}
+\runningfooter{}{}{}
+
+
+\begin{document}
+
+\begin{center}
+\fbox{\fbox{\parbox{6in}{%\centering
+\textbf{免責聲明：}\\本補習為鏡州商貿學院\textit{（新圩）}部分學生之\textbf{自發行為}，與其他任何學校、任何老師或任何同學無關。本課程\textbf{不佔學時，不影響平時成績，不附贈二課學分}，不強制同學參加，也\textbf{不保證參加同學一定能夠及格}。如果本補習使用之複習題與任何學校之教材或考試題目雷同，那\textbf{太正常了}。因為《高等數學》一共就這麼幾個知識點，變來變去也變不出多少花樣。你讓我上哪兒找那麼多新題型去？
+}}}
+\end{center}
+
+\fullwidth{注：在本複習題中，帶有\important 標註的題目為該小節中的關鍵概念及重點題目，這些題目在期末考試中往往經常出現，並且稍加學習便很容易掌握，是我們複習的重點。帶有\unimportant 標註的題目為非重點題目，這些題目在期末考試中很少出現，或者學習難度很高，不是我們複習的重點。不帶有標註的題目為普通題目，它們在期末考試中出現的可能性和學習難度一般。}
+
+\section{函數、極限、連續}
+
+\subsection{函數極限與數列極限的計算}
+
+\begin{questions} %------------------------------------------
+
+\question
+\important 默寫常用的麥克勞林公式。
+\begin{parts}
+    \part
+    $\displaystyle e^x =$
+    \vspace{\stretch{2}}
+    \part
+    $\displaystyle \sin{x} =$
+    \vspace{\stretch{2}}
+    \part
+    $\displaystyle \cos{x} =$
+    \vspace{\stretch{2}}
+    \part
+    $\displaystyle \ln{(1+x)} =$
+    \vspace{\stretch{2}}
+\end{parts}
+
+\newpage %---------------------------------------------------
+
+\question
+\important 極限的計算方法：
+\begin{description}
+    \item[麥克勞林公式：] 
+        \begin{enumerate}
+            \item
+            沒有$0$的直接帶進去算；
+            \item
+            有$0$的想辦法把$0$顯現出來；
+            \item
+            帶麥克勞林公式化成多項式；
+            \item
+            把$0$約掉，得到結果。
+        \end{enumerate}
+    \item[麥克勞林公式的用法：] 乘除帶一項；加減帶多項，帶到與分子/分母同次為止。
+    \item[洛必達法則：] 若[\textit{略}]，則$\displaystyle \lim_{x \to x_0} \frac{f(x)}{g(x)} = \lim_{x \to x_0} \frac{f'(x)}{g'(x)}$
+    \item[$1$加$0$的次方：] 對於$\displaystyle (1+0)^?$形式的極限，要翻成$\displaystyle e^{? \ln{(1+0)}}$的型式再計算。
+\end{description}
+\vspace{\stretch{1}}
+
+\question[1]
+下列極限正確的是
+\begin{choices}
+    \choice $\displaystyle \lim_{x \to 0^-} e^{\frac{1}{x}}=0$
+    \choice $\displaystyle \lim_{x \to 0^+} e^{\frac{1}{x}}=0$
+    \choice $\displaystyle \lim_{x \to 0} (1+\cos{x})^{\sec x}=e$
+    \choice $\displaystyle \lim_{x \to \infty} (1+x)^{\frac{1}{x}}=e$
+\end{choices}
+\vspace{\stretch{1}}
+
+\newpage %---------------------------------------------------
+
+\question
+計算下列極限。
+\begin{parts}
+    \part[1]
+    $\displaystyle \lim_{x \to \sqrt{3}} \frac{x^2-2}{x^4+x^2+1}$
+    \vspace{\stretch{2}}
+    \part[1]
+    $\displaystyle \lim_{x \to 1^-} \frac{x-1}{|x-1|}$
+    \vspace{\stretch{2}}
+    \part[1]
+    $\displaystyle \lim_{x \to 1} \left( \frac{1}{1-x}-\frac{3}{1-x^3} \right)$
+    \vspace{\stretch{2}}
+    \part[1]
+    $\displaystyle \lim_{x \to \infty} \frac{(2x-3)^{20} (3x+2)^{30}}{(5x+1)^{50}}$
+    \vspace{\stretch{2}}
+    \part[1]
+    $\displaystyle \lim_{x \to 0} \frac{\sin{x^n}}{(\sin{x})^m}$（其中$m>0,n>0$為常數）
+    \vspace{\stretch{2}}
+    \newpage %---------------------------------------------------
+    \bonuspart
+    \unimportant $\displaystyle \lim_{n \to \infty} \left( \frac{n}{n^2+1}+\frac{n}{n^2+2}+\dots+\frac{n}{n^2+n} \right)$ \hint{放縮法}
+    \vspace{\stretch{2}}
+    \part[1]
+    $\displaystyle \lim_{n \to \infty} \left( \frac{1}{n^2}+\frac{2}{n^2}+\dots+\frac{n}{n^2} \right)$ \hint{定積分的定義或者暴力求解}
+    \vspace{\stretch{2}}
+    \bonuspart
+    \unimportant $\displaystyle \lim_{n \to \infty} \left( \frac{n}{n^2+1^2}+\frac{n}{n^2+2^2}+\dots+\frac{n}{n^2+n^2} \right)$ \hint{定積分的定義}
+    \vspace{\stretch{2}}
+    \bonuspart
+    \unimportant 設$a_1>0$，$a_{n+1}=\ln{(1+a_n)}$。證明：$\displaystyle \lim_{n \to \infty} a_n$存在，並求此極限。
+    \vspace{\stretch{2}}
+    \newpage %---------------------------------------------------
+    \part[1]
+    $\displaystyle \lim_{x \to 0} x\sin{\frac{1}{x}}$
+    \vspace{\stretch{2}}
+    \part[1]
+    $\displaystyle \lim_{x \to \infty} \frac{\sin{x}}{x}$
+    \vspace{\stretch{2}}
+    \part[1]
+    $\displaystyle \lim_{x \to 0} \frac{\sin{x}}{x}$
+    \vspace{\stretch{2}}
+    \part[1]
+    $\displaystyle \lim_{x \to \infty} x\sin{\frac{1}{x}}$
+    \vspace{\stretch{2}}
+    \part[1]
+    \important $\displaystyle \lim_{x \to 0} x^2\sin{\frac{1}{x}}$
+    \vspace{\stretch{2}}
+    \newpage %---------------------------------------------------
+    \part[1]
+    \important $\displaystyle \lim_{x \to 0} \frac{\tan^2{3x}}{x \sin{2x}}$
+    \vspace{\stretch{2}}
+    \part[1]
+    \important $\displaystyle \lim_{x \to 0} \frac{x \ln{(1+x)}}{1-\cos{x}}$
+    \vspace{\stretch{2}}
+    \part[1]
+    \important $\displaystyle \lim_{x \to 0} \frac{\ln{(\cos{x})}}{x^2}$
+    \vspace{\stretch{2}}
+    \part[1]
+    \important $\displaystyle \lim_{x \to 0} \frac{\tan x -\sin x}{x \sin ^2 x}$
+    \vspace{\stretch{2}}
+    \newpage %---------------------------------------------------
+    \part[1]
+    \important $\displaystyle \lim_{x \to \infty} \left( 1+\frac{4}{x} \right)^{x}$
+    \vspace{\stretch{2}}
+    \part[1]
+    \important $\displaystyle \lim_{x \to 0} (\cos{x})^{\frac{1}{x^2}}$
+    \vspace{\stretch{2}}
+    \part[1]
+    \important $\displaystyle \lim_{x \to 0} \left( \frac{2x+3}{2x+1} \right)^{x+1}$
+    \vspace{\stretch{2}}
+    \part[1]
+    \important $\displaystyle \lim_{n \to \infty} \left( \frac{n-2}{n} \right)^{3n}$
+    \vspace{\stretch{2}}
+    \part[1]
+    \important $\displaystyle \lim_{x \to 0} \frac{1}{x} \left[ \left( \frac{4-\cos{x}}{3} \right)^{\frac{1}{x}} -1 \right]$
+    \vspace{\stretch{2}}
+    \newpage %---------------------------------------------------
+    \bonuspart
+    \unimportant $\displaystyle \lim_{x \to +\infty} \frac{e^x}{\left( 1+\frac{1}{x} \right)^{x^2}}$
+    \vspace{\stretch{2}}
+    \part[1]
+    $\displaystyle \lim_{x \to 0} \frac{e^x-e^{-x}}{\sin{x}}$
+    \vspace{\stretch{2}}
+    \bonuspart
+    \unimportant $\displaystyle \lim_{x \to 0} \frac{\cos{(\sin{x})}-\cos{x}}{x^4}$ \hint{拉格朗日中值定理}
+    \vspace{\stretch{2}}
+    \part[1]
+    $\displaystyle \lim_{x \to 0} \frac{x^2-\int_0^{x^2}\cos{t^2} \d t}{x \sin^9{x}}$ \hint{洛必達法則}
+    \vspace{\stretch{2}}
+\end{parts}
+
+\end{questions}
+
+\newpage %---------------------------------------------------
+
+\subsection{函數的連續性與間斷點}
+
+\begin{questions}
+
+\question
+\important 當函數在一點的左右極限存在並且相等，則說函數在這個點有\textbf{極限}，這個極限是它的左右極限值。當函數在一點的極限值等於函數值，則說函數在這一點\textbf{連續}。否則，則說函數在這一點\textbf{間斷}，這一點是函數的\textbf{間斷點}。間斷點的分類如下：
+\begin{itemize}
+    \item
+    左右極限\textbf{存在且相等}，為\textbf{第一類間斷點}中的\textbf{可去間斷點}；
+    \item
+    左右極限\textbf{存在但不相等}，為\textbf{第一類間斷點}中的\textbf{跳躍間斷點}；
+    \item
+    左右極限\textbf{有至少一個不存在}，為\textbf{第二類間斷點}。
+\end{itemize}
+\vspace{\stretch{1}}
+
+\question[1]
+求$\displaystyle f(x)=\frac{x}{x}$、$\displaystyle g(x)=\frac{|x|}{x}$當$x \to 0$時的左右極限，並說明它們當$x \to 0$時的極限是否存在。
+\vspace{\stretch{2}}
+
+\newpage %---------------------------------------------------
+
+\question[1]
+設$\displaystyle f(x)=\frac{e^{\frac{1}{x}}-1}{e^{\frac{1}{x}}+1}$，則$x=0$是$f(x)$的
+\begin{choices}
+    \choice 可去間斷點
+    \choice 跳躍間斷點
+    \choice 第二類間斷點
+    \choice 連續點
+\end{choices}
+\vspace{\stretch{1}}
+
+\question[1]
+設$\displaystyle f(x)=\frac{1-e^{\frac{1}{x-1}}}{1+e^{\frac{1}{x-1}}} \cdot e^{\frac{1}{x}}$，求$f(x)$的間斷點並分類。
+\vspace{\stretch{2}}
+
+\question[1]
+設$f(x)=\begin{cases} 
+    x &,0<x<1 \\ 
+    2 &,x=1\\ 
+    2+x &,1<x<2 
+\end{cases}
+$，則$x=1$為函數$f(x)$的\fillin[Black]間斷點。
+\vspace{\stretch{1}}
+
+\question[1]
+\important 設$f(x)=\begin{cases} 
+    x+1 &,x \leq 0 \\ 
+    x-2 &,x>0
+\end{cases}
+$，則$x=0$為函數$f(x)$的\fillin[Black]間斷點。
+\vspace{\stretch{1}}
+
+\end{questions}
+
+\newpage %---------------------------------------------------
+
+\subsection{漸近線}
+
+\begin{questions}
+
+\question
+\begin{itemize}
+    \item \important 若$\displaystyle \lim_{x \to a}f(x)=\infty$，或$f(a-0)=\infty$或$f(a+0)=\infty$，稱$x=a$為$L: y=f(x)$的\textbf{鉛直漸近線}；
+    \item \important 若$\displaystyle \lim_{x \to \infty}f(x)=A$，稱$y=A$為$L: y=f(x)$的\textbf{水平漸近線}；
+    \item \unimportant 若$\displaystyle \lim_{x \to \infty}\frac{f(x)}{x}=a(a \neq 0)$，$\displaystyle \lim_{x \to \infty} \left[ f(x)-ax \right]=b$，稱$y=ax+b$為$L: y=f(x)$的\textbf{斜漸近線}。
+\end{itemize}
+\vspace{\stretch{1}}
+
+\question[1]
+曲線$\displaystyle y=\frac{x+1}{x^2-1}$的鉛直漸近線為
+\vspace{\stretch{2}}
+
+\question[1]
+曲線$\displaystyle y=\frac{x+3}{2x-1}$的水平漸近線為
+\vspace{\stretch{2}}
+
+\bonusquestion
+\unimportant 求曲線$\displaystyle y=\frac{2}{x}+\ln{(1+e^x)}$的全部漸近線。
+\vspace{\stretch{2}}
+
+\end{questions}
+
+\newpage %---------------------------------------------------
+
+\subsection{無窮小與無窮大}
+
+\begin{questions}
+
+\question
+對於$x \to a$時的兩個無窮小$f(x)$和$g(x)$，\begin{itemize}
+    \item 若$\displaystyle \lim_{x \to a} \frac{f(x)}{g(x)}=\infty$，$g(x)$是$f(x)$的\textbf{高階無窮小}，$f(x)$是$g(x)$的\textbf{低階無窮小}；
+    \item 若$\displaystyle \lim_{x \to a} \frac{f(x)}{g(x)}=0$，$f(x)$是$g(x)$的\textbf{高階無窮小}，$g(x)$是$f(x)$的\textbf{低階無窮小}；
+    \item 若$\displaystyle \lim_{x \to a} \frac{f(x)}{g(x)}=C(C\text{為常數})$，$f(x)$與$g(x)$為\textbf{同階無窮小}；
+    \item \important 若$\displaystyle \lim_{x \to a} \frac{f(x)}{g(x)}=1$，$f(x)$與$g(x)$為\textbf{同階無窮小}中的一個特殊情況，\textbf{等價無窮小}。
+\end{itemize}
+\vspace{\stretch{1}}
+
+\question[1]
+當$x \to 0$時，下列變量中是無窮小量的有
+\begin{choices}
+    \choice $\displaystyle \sin{\frac{1}{x}}$
+    \choice $\displaystyle \frac{\sin{x}}{x}$
+    \choice $2^{-x}-1$
+    \choice $\ln{|x|}$
+\end{choices}
+\vspace{\stretch{1}}
+
+\question[1]
+函數$\displaystyle \frac{1+2x^3}{x^2}$為當$x \to 0$時的無窮\fillin[Black]量。
+\vspace{\stretch{1}}
+
+\newpage %---------------------------------------------------
+
+\question[1]
+無窮多個無窮小量之和
+\begin{choices}
+    \choice 必是無窮小量
+    \choice 必是無窮大量
+    \choice 必是有界量
+    \choice 可能是無窮小，可能是無窮大，也有可能是有界量
+\end{choices}
+\vspace{\stretch{1}}
+
+\question[1]
+若$\displaystyle \lim_{x \to x_0}f(x)=\infty$，$\displaystyle \lim_{x \to x_0}g(x)=\infty$，則下列正確的是
+\begin{choices}
+    \choice $\displaystyle \lim_{x \to x_0}f(x)+g(x)=\infty$
+    \choice $\displaystyle \lim_{x \to x_0}f(x)-g(x)=\infty$
+    \choice $\displaystyle \lim_{x \to x_0}\frac{1}{f(x)+g(x)}=0$
+    \choice $\displaystyle \lim_{x \to x_0}kf(x)=\infty$
+\end{choices}
+\vspace{\stretch{1}}
+
+\question[1]
+$\sin{x}$與$x$當$x \to 0$時為\fillin[Black]無窮小。
+\vspace{\stretch{1}}
+
+\question[1]
+$1-\cos{x}$與$x^2$當$x \to 0$時為\fillin[Black]無窮小。
+\vspace{\stretch{1}}
+
+\newpage %---------------------------------------------------
+
+\question[1]
+當$x \to 0$時，與$\ln{(1+x^2)}$為同階無窮小但不為等價無窮小的是
+\begin{choices}
+    \choice $\sin{x}\tan^2{x}$
+    \choice $1-\cos{x}$
+    \choice $\displaystyle \left( 1+\frac{1}{2}x^2 \right)^2-1$
+    \choice $x \sin{x}$
+\end{choices}
+\vspace{\stretch{1}}
+
+\question[1]
+當$x \to 0$時，$f(x)=x-\sin ax$與$g(x)=x^2 \ln (1-bx)$是等價無窮小量，則
+\begin{choices}
+    \choice $\displaystyle a=1, b=-\frac{1}{6}$
+    \choice $\displaystyle a=1, b=\frac{1}{6}$
+    \choice $\displaystyle a=-1, b=-\frac{1}{6}$
+    \choice $\displaystyle a=-1, b=\frac{1}{6}$
+\end{choices}
+\vspace{\stretch{1}}
+
+\bonusquestion
+\unimportant 設$\displaystyle \lim_{x \to 0} \frac{\ln{\left[ 1+\dfrac{f(x)}{x^2} \right]}}{\arctan{x}}=1$，求$\displaystyle \lim_{x \to 0} \frac{f(x)}{(1-\cos{x})\tan{x}}$。\hint{等價無窮小代換}
+\vspace{\stretch{2}}
+
+\end{questions}
+
+\newpage %---------------------------------------------------
+
+\subsection{函數的性質}
+
+\begin{questions}
+
+\question[1]
+下列函數在$(-\infty,+\infty)$內無界的是
+\begin{choices}
+    \choice $\displaystyle y=\frac{1}{1+x^2}$
+    \choice $\displaystyle y=\arctan{x}$
+    \choice $\displaystyle y=\sin{x}+\cos{x}$
+    \choice $\displaystyle y=x \sin{x}$
+\end{choices}
+\vspace{\stretch{1}}
+
+\question[1]
+求下列函數的定義域。\\
+$y=\ln{(x+5)}$
+\vspace{\stretch{2}}
+
+\end{questions}
+
+\newpage %---------------------------------------------------
+
+\section{一元函數微分學}
+
+\subsection{導數的定義與複合函數求導}
+
+\begin{questions}
+
+\question
+\unimportant \textbf{導數}指的是一個函數在某一瞬間的變化率。比如說位移的導數是速度，速度的導數是加速度。例如函數$f(x)$在$x$時點的變化率$f'(x)$可以寫成$\displaystyle f'(x)=\lim_{\Delta x \to 0} \frac{f(x+\Delta x)-f(x)}{\Delta x}=\lim_{h \to x} \frac{f(h)-f(x)}{h-x}$。關於導數的四則運算和鏈式法則的內容高中都學過，這裡就不細講了。
+\vspace{\stretch{1}}
+
+\question
+\important 默寫常用的求導基本公式。
+\begin{parts}
+    \part
+    $\displaystyle \left( C \right)'=$
+    \vspace{\stretch{2}}
+    \part
+    $\displaystyle \left( x^a \right)'=$
+    \vspace{\stretch{2}}
+    \part
+    $\displaystyle \left( \sqrt{x} \right)'=$
+    \vspace{\stretch{2}}
+    \part
+    $\displaystyle \left( \frac{1}{x} \right)'=$
+    \vspace{\stretch{2}}
+    \part
+    $\displaystyle \left( a^x \right)'=(a>0,a\neq1)$
+    \vspace{\stretch{2}}
+    \part
+    $\displaystyle \left( e^x \right)'=$
+    \vspace{\stretch{2}}
+    \part
+    $\displaystyle \left( \log_a x \right)'=$
+    \vspace{\stretch{2}}
+    \part
+    $\displaystyle \left( \ln x \right)'=$
+    \vspace{\stretch{2}}
+
+\newpage %---------------------------------------------------
+    
+    \part
+    $\displaystyle \left( \sin x \right)'=$
+    \vspace{\stretch{2}}
+    \part
+    $\displaystyle \left( \cos x \right)'=$
+    \vspace{\stretch{2}}
+    \part
+    $\displaystyle \left( \tan x \right)'=$
+    \vspace{\stretch{2}}
+    \part
+    $\displaystyle \left( \cot x \right)'=$
+    \vspace{\stretch{2}}
+    \part
+    $\displaystyle \left( \sec x \right)'=$
+    \vspace{\stretch{2}}
+    \part
+    $\displaystyle \left( \csc x \right)'=$
+    \vspace{\stretch{2}}
+    \part
+    $\displaystyle \left( \arcsin x \right)'=$
+    \vspace{\stretch{2}}
+    \part
+    $\displaystyle \left( \arccos x \right)'=$
+    \vspace{\stretch{2}}
+    \part
+    $\displaystyle \left( \arctan x \right)'=$
+    \vspace{\stretch{2}}
+    \part
+    $\displaystyle \left( \arccot x \right)'=$
+    \vspace{\stretch{2}}
+\end{parts}
+
+\newpage %---------------------------------------------------
+
+\bonusquestion
+\unimportant 設$\displaystyle f(x)=\begin{cases}
+    \ln (1+ax) +b &, x>0\\
+    e^{2x} &, x \leq 0
+\end{cases}$，若$f'(0)$存在，求$a$、$b$的值。
+\vspace{\stretch{2}}
+
+\bonusquestion
+\unimportant 已知函數$f(x)$在$x=1$附近連續。通過以下哪一個選項的條件可以推斷出$f'(1)=-2$？
+\begin{choices}
+    \choice $\displaystyle \lim_{x \to 0} \frac{f(1+x)-f(1)}{2x}=-2$
+    \choice $\displaystyle \lim_{x \to 0} \frac{f(1+x^3)-f(1)}{\sin^2 x}=-2$
+    \choice $\displaystyle \lim_{x \to 0} \frac{f(\cos x)-f(1)}{x^2}=1$
+    \choice $\displaystyle \lim_{x \to 0} \frac{f(1-x^3)-f(1)}{\sin x-x}=-12$
+\end{choices}
+\vspace{\stretch{1}}
+
+\question[1]
+設函數$f(x)=|\sin x|$，則$f(x)$在$x=0$處
+\begin{choices}
+    \choice 不連續
+    \choice 連續，但不可導
+    \choice 可導，但不連續
+    \choice 可導，且導數也連續
+\end{choices}
+\vspace{\stretch{1}}
+
+\newpage %---------------------------------------------------
+
+\question
+求下列函數的導數。
+
+\begin{parts}
+
+    \part[1]
+    $\displaystyle y=e^{\arctan \sqrt{x}}$
+    \vspace{\stretch{2}}
+    
+    \part[1]
+    $\displaystyle y=\ln \tan \frac{x}{2}$
+    \vspace{\stretch{2}}
+    
+    \part[1]
+    $\displaystyle s=a \cos^2 (2\omega t + \phi)$
+    \vspace{\stretch{2}}
+
+\end{parts}
+
+\newpage %---------------------------------------------------
+
+\question[1]
+\important 函數$\displaystyle \frac{\ln x}{x}$是$f(x)$的一個原函數，則$f(x)=$\fillin[Blank]。
+\vspace{\stretch{1}}
+
+\question[1]
+\important 函數$y=e^{2-3x}$，則$y^{(n)}=$\fillin[Blank]。
+\vspace{\stretch{1}}
+
+\question[1]
+設$y=xe^x$，則$y^{(n)}=$
+\begin{choices}
+    \choice $\displaystyle e^x(x+n)$
+    \choice $\displaystyle e^x(x-n)$
+    \choice $\displaystyle 2e^x(x+n)$
+    \choice $\displaystyle xe^{nx}$
+\end{choices}
+\vspace{\stretch{1}}
+
+\question[1]
+求曲線$y=\cos x$在點$\displaystyle \left( \frac{\pi}{3}, \frac{1}{2} \right)$處的切線和法線方程。
+\vspace{\stretch{2}}
+
+\end{questions}
+
+\newpage %---------------------------------------------------
+
+\subsection{隱函數求導}
+
+\begin{questions}
+
+\question
+像是由方程$F(x,y)=0$確定的$y$是$x$的函數我們叫它隱函數。隱函數的求導主要有兩種方法\begin{itemize}
+    \item 一個是把函數左右兩邊對兩邊求導，再通過移項等操作將$y'$移到等號一邊，其他項移到等號另一邊。需要注意，在求導時要將$x$看成$y$的函數，即在求導到關於$y$的多項式時鏈式法則需要一直波及到$x$。
+    \item \important 另一個方法是帶公式$\displaystyle \frac{\d y}{\d x} = -\frac{F_x'}{F_y'}$。其中，$F_x'$為$F(x,y)$對$x$的偏導數，$F_y'$為$F(x,y)$對$y$的偏導數。在求函數對一個元的偏導數的時候，要將另一個元看作常數。
+\end{itemize}
+\vspace{\stretch{1}}
+
+\question[1]
+求下列方程所確定的隱函數$y$的導數$\displaystyle \frac{\d y}{\d x}$
+
+$xy=e^{x+y}$
+\vspace{\stretch{2}}
+
+\question[1]
+\important 設$x+y-xe^y=0$，求$\d y$。
+\vspace{\stretch{2}}
+
+\end{questions}
+
+\newpage %---------------------------------------------------
+
+\subsection{參數方程確定的函數求導}
+
+\begin{questions}
+
+\question
+\important 對於$\displaystyle \begin{cases}
+y=y(t)\\
+x=x(t) 
+\end{cases}$這樣的函數，我們稱為參數方程確定的函數。它的導數可以這樣求：
+\begin{align*}
+    \frac{\d y}{\d x} &= \frac{\d y / \d t}{\d x / \d t}=\frac{y'(t)}{x'(t)}\\
+    \frac{\d^2 y}{\d x^2} &= \frac{\d \left( \frac{\d y}{\d x} \right) / \d t}{\d x / \d t}=\frac{\left[ 
+\frac{y'(t)}{x'(t)} \right]'}{x'(t)}=\frac{y''(t)x'(t)-y'(t)x''(t)}{[x'(t)]^3}
+\end{align*}
+\vspace{\stretch{1}}
+
+\question[1]
+\important 設$\begin{cases}
+x=\sin t+3\\
+y=t-\cos 2t
+\end{cases}$，則$\displaystyle \frac{\d ^2 y}{\d x^2}=$\fillin[Black]。
+\vspace{\stretch{1}}
+
+\question[1]
+設由方程$\begin{cases}
+x=a(t-\sin t)\\
+y=a(1-\cos t)
+\end{cases}$所確定的函數為$y=y(x)$，則在$\displaystyle t=\frac{\pi}{2}$處導數為
+\begin{choices}
+    \choice $-1$
+    \choice $1$
+    \choice $0$
+    \choice $\displaystyle -\frac{1}{2}$
+\end{choices}
+\vspace{\stretch{1}}
+
+\question[1]
+求下列方程所確定的隱函數$y$的二階導數$\displaystyle \frac{\d^2 y}{\d x^2}$
+
+$\begin{cases}
+x=\ln(1+t^2)\\
+y=t-\arctan t
+\end{cases}$
+\vspace{\stretch{2}}
+
+\end{questions}
+
+\newpage %---------------------------------------------------
+
+\subsection{微分中值定理}
+
+\begin{questions}
+
+\question
+\begin{description}
+    \item[零點定理：] 若函數$f(x)$在$[a,b]$連續，$f(a)f(b)<0$，則一定存在$\xi \in (a,b)$使得$f(\xi)=0$。
+    \item[\important 羅爾定理：] 若函數$f(x)$在$[a,b]$連續，在$(a,b)$可導，$f(a)=f(b)$，則一定存在$\xi \in (a,b)$使得$f'(\xi)=0$。
+    \item[拉格朗日中值定理：] 若函數$f(x)$在$[a,b]$連續，在$(a,b)$可導，則一定存在$\xi \in (a,b)$使得$\displaystyle f'(\xi)=\frac{f(b)-f(a)}{b-a}$，或者寫作$f(b)-f(a)=f'(\xi)(b-a)$。
+    \item[柯西中值定理：] 若函數$f(x)$和$g(x)$在$[a,b]$連續，在$(a,b)$可導，$g'(x) \neq 0$，則一定存在$\xi \in (a,b)$使得$\displaystyle \frac{f'(\xi)}{g'(\xi)}=\frac{f(b)-f(a)}{g(b)-g(a)}$。
+\end{description}
+\vspace{\stretch{1}}
+
+\question
+函數$f(x)$在$[a,b]$連續，在$(a,b)$可導，$f(a)=f(b)=0$，並且$a>0, b>0$。嘗試證明：
+\begin{parts}
+    \part[1]
+    在區間$(a,b)$內存在一點$\xi$使得$f(\xi)+\xi f'(\xi)=0$。\hint{“$\xi$”讀作“克西”}
+    \vspace{\stretch{2}}
+    \part[1]
+    在區間$(a,b)$內存在一點$\epsilon$使得$5f(\epsilon)+\epsilon f'(\epsilon)=0$。\hint{“$\epsilon$”讀作“艾普西隆”}
+    \vspace{\stretch{2}}
+\newpage %---------------------------------------------------
+    \part[1]
+    \important 在區間$(a,b)$內存在一點$\zeta$使得$f(\zeta)+f'(\zeta)=0$。\hint{“$\zeta$”讀作“澤塔”}
+    \vspace{\stretch{2}}
+    \part[1]
+    \important 在區間$(a,b)$內存在一點$\eta$使得$5f(\eta)+f'(\eta)=0$。\hint{“$\eta$”讀作“伊塔”}
+    \vspace{\stretch{2}}
+    \part[1]
+    \important 在區間$(a,b)$內存在一點$\mu$使得$2\mu f(\mu)+f'(\mu)=0$。\hint{“$\mu$”讀作“謬”}
+    \vspace{\stretch{2}}
+\end{parts}
+
+\end{questions}
+
+\newpage %---------------------------------------------------
+
+\subsection{單調性與極值、凹凸性與拐點、函數作圖}
+
+\begin{questions}
+
+\question 
+\important 一階導大於0的是\textbf{增區間}，一階導小於0的是\textbf{減區間}，由增區間往減區間轉變的是\textbf{極大值點}，由減區間往增區間轉變的是\textbf{極小值點}。二階導大於0的是\textbf{凹區間}，二階導小於0的是\textbf{凸區間}，一階導等於0二階導大於0的是\textbf{極小值點}，一階導等於0二階導小於0的是\textbf{極大值點}，凹區間和凸區間交接處是\textbf{拐點}。
+\vspace{\stretch{1}}
+
+\question[1]
+若$(x_0, f(x_0))$為連續曲線$y=f(x)$上的凹弧與凸弧分界點，則
+\begin{choices}
+    \choice $(x_0, f(x_0))$必定為曲線的拐點
+    \choice $(x_0, f(x_0))$必定為曲線的駐點
+    \choice $x_0$為$f(x)$的極值點
+    \choice $x_0$必定不是$f(x)$的極值點
+\end{choices}
+\vspace{\stretch{1}}
+
+\question[1]
+下列結論正確的是
+\begin{choices}
+    \choice 駐點一定是極值點
+    \choice 可導函數的極值點一定是駐點
+    \choice 函數的不可導點一定是極值點
+    \choice 函數的極大值一定大於極小值
+\end{choices}
+\vspace{\stretch{1}}
+
+\newpage %---------------------------------------------------
+
+\question[1]
+\important \textbf{\underline{在同一表中}}討論$y=1+3x^2-x^3$的單調性、極值、凹凸性、拐點。
+\vspace{\stretch{2}}
+
+\end{questions}
+
+\newpage %---------------------------------------------------
+
+\section{一元函數積分學}
+
+\subsection{積分計算}
+
+\begin{questions}
+
+\question \important 不定積分可以出很難的題。\textbf{實在做不出來就算了。}
+\vspace{\stretch{1}}
+
+\question \important 默寫常用的不定積分基本公式：
+\begin{parts}
+    \part
+    $\displaystyle \int k \d x = (k\text{為常數})$
+    \vspace{\stretch{2}}
+    \part
+    $\displaystyle \int x^a \d x = (a \neq 1)$
+    \vspace{\stretch{2}}
+    \part
+    $\displaystyle \int \frac{1}{x} \d x = (x \neq 0)$
+    \vspace{\stretch{2}}
+    \part
+    $\displaystyle \int a^x \d x = (a>0, a \neq 1)$
+    \vspace{\stretch{2}}
+    \part
+    $\displaystyle \int e^x \d x = $
+    \vspace{\stretch{2}}
+    \newpage %---------------------------------------------------
+    \part
+    $\displaystyle \int \sin x \d x = $
+    \vspace{\stretch{2}}
+    \part
+    $\displaystyle \int \cos x \d x = $
+    \vspace{\stretch{2}}
+    \part
+    $\displaystyle \int \tan x \d x = $
+    \vspace{\stretch{2}}
+    \part
+    $\displaystyle \int \cot x \d x = $
+    \vspace{\stretch{2}}
+    \part
+    $\displaystyle \int \sec x \d x = $
+    \vspace{\stretch{2}}
+    \part
+    $\displaystyle \int \csc x \d x = $
+    \vspace{\stretch{2}}
+    \part
+    $\displaystyle \int \sec^2 x \d x = $
+    \vspace{\stretch{2}}
+    \part
+    $\displaystyle \int \csc^2 x \d x = $
+    \vspace{\stretch{2}}
+    \newpage %---------------------------------------------------
+    \part
+    $\displaystyle \int \frac{1}{\sqrt{1-x^2}} \d x = $
+    \vspace{\stretch{2}}
+    \part
+    $\displaystyle \int \frac{1}{\sqrt{a^2-x^2}} \d x = $
+    \vspace{\stretch{2}}
+    \part
+    $\displaystyle \int \frac{1}{1+x^2} \d x = $
+    \vspace{\stretch{2}}
+    \part
+    $\displaystyle \int \frac{1}{a^2+x^2} \d x = $
+    \vspace{\stretch{2}}
+    \part
+    $\displaystyle \int \sec x \tan x \d x = $
+    \vspace{\stretch{2}}
+    \part
+    $\displaystyle \int \csc x \cot x \d x = $
+    \vspace{\stretch{2}}
+    \newpage %---------------------------------------------------
+    \part
+    $\displaystyle \int \frac{1}{x^2-a^2} \d x = $
+    \vspace{\stretch{2}}
+    \part
+    $\displaystyle \int \frac{1}{\sqrt{x^2+a^2}} \d x = $
+    \vspace{\stretch{2}}
+    \part
+    $\displaystyle \int \frac{1}{\sqrt{x^2-a^2}} \d x = $
+    \vspace{\stretch{2}}
+    \part
+    $\displaystyle \int \sqrt{a^2-x^2} \d x = $
+    \vspace{\stretch{2}}
+\end{parts}
+
+\newpage %---------------------------------------------------
+
+\question[1]
+已知函數$f(x)=\begin{cases}
+    2(x-1) &,x<1\\
+    \ln x &, x\geq 1
+\end{cases}$，則$f(x)$的一個原函數是
+\begin{choices}
+    \choice $\displaystyle F(x)=\begin{cases}
+        (x-1)^2 &,x<1\\
+        x(\ln x -1) &, x\geq 1
+    \end{cases}$
+    \choice $\displaystyle F(x)=\begin{cases}
+        (x-1)^2 &,x<1\\
+        x(\ln x +1)-1 &, x\geq 1
+    \end{cases}$
+    \choice $\displaystyle F(x)=\begin{cases}
+        (x-1)^2 &,x<1\\
+        x(\ln x +1)+1 &, x\geq 1
+    \end{cases}$
+    \choice $\displaystyle F(x)=\begin{cases}
+        (x-1)^2 &,x<1\\
+        x(\ln x -1)+1 &, x\geq 1
+    \end{cases}$
+\end{choices}
+\vspace{\stretch{1}}
+
+\question[1]
+設$\displaystyle I=\int_0^{\frac{\pi}{4}} \ln (\sin x) \d x$，$\displaystyle J=\int_0^{\frac{\pi}{4}} \ln (\cot x) \d x$，$\displaystyle K=\int_0^{\frac{\pi}{4}} \ln (\cos x) \d x$，則$I$、$J$、$K$的大小關係為
+\begin{choices}
+    \choice $I<J<K$
+    \choice $I<K<J$
+    \choice $J<I<K$
+    \choice $K<J<I$
+\end{choices}
+\vspace{\stretch{1}}
+
+\newpage %---------------------------------------------------
+
+\question
+計算下列積分：
+\begin{parts}
+
+    \part[1]
+    $\displaystyle \int 3^x e^x \d x$
+    \vspace{\stretch{2}}
+
+    \part[1]
+    \important $\displaystyle \int (3-2x)^3 \d x$
+    \vspace{\stretch{2}}
+
+    \part[1]
+    \important $\displaystyle \int \cos^2 3x \d x$
+    \vspace{\stretch{2}}
+
+    \part[1]
+    \important $\displaystyle \int x \cos (x^2) \d x$
+    \vspace{\stretch{2}}
+
+    \part[1]
+    \important $\displaystyle \int_{0}^{\frac{\pi}{2}} \sin x \cos ^3 x \d x$
+    \vspace{\stretch{2}}
+
+    \newpage %---------------------------------------------------
+
+    \part[1]
+    \important $\displaystyle \int_{1}^{4} \frac{1}{1+\sqrt{x}} \d x$ \hint{第二類換元法}
+    \vspace{\stretch{2}}
+
+    \part[1]
+    \important $\displaystyle \int \frac{\sqrt{x}}{\sqrt{x}-1} \d x$ \hint{第二類換元法}
+    \vspace{\stretch{2}}
+    
+    \bonuspart
+    \unimportant $\displaystyle \int \sqrt{9-x^2} \d x$ \hint{第二類換元法}
+    \vspace{\stretch{2}}
+
+    \newpage %---------------------------------------------------
+
+    \part[1]
+    \important $\displaystyle \int_{-\pi}^{\pi} x^3 \cos ^2 2x \d x$ \hint{定積分的幾何意義}
+    \vspace{\stretch{2}}
+
+    \part[1]
+    \important $\displaystyle \int_{-3}^{3} \sqrt{9-x^2} \d x$ \hint{定積分的幾何意義}
+    \vspace{\stretch{2}}
+
+    \part[1]
+    \important $\displaystyle \int_{-3}^{0} (x+\sqrt{9-x^2}) \d x$ \hint{定積分的幾何意義}
+    \vspace{\stretch{2}}
+    
+    \newpage %---------------------------------------------------
+
+    \part[1]
+    \important $\displaystyle \int \arcsin x \d x$
+    \vspace{\stretch{2}}
+
+    \part[1]
+    \important $\displaystyle \int \frac{\ln x}{\sqrt{x}} \d x$
+    \vspace{\stretch{2}}
+
+    \part[1]
+    \important $\displaystyle \int x \ln (x+1) \d x$
+    \vspace{\stretch{2}}
+
+    \part[1]
+    \important $\displaystyle \int x^2 \ln 2x \d x$
+    \vspace{\stretch{2}}
+
+    \part[1]
+    \important $\displaystyle \int_{0}^{1} x e^{-x} \d x$
+    \vspace{\stretch{2}}
+
+    \newpage %---------------------------------------------------
+
+    \part[1]
+    \important \unimportant $\displaystyle \int_{1}^{+\infty} \left( 3^{-x} + \frac{1}{x^4} \right) \d x$
+    \vspace{\stretch{2}}
+    
+\end{parts}
+
+\question[1]
+下列積分中的反常積分為
+\begin{choices}
+    \choice $\displaystyle \int_0^1 \frac{1}{2-x} \d x$
+    \choice $\displaystyle \int_0^1 \frac{1}{2+x} \d x$
+    \choice $\displaystyle \int_0^2 \frac{1}{1+x^2} \d x$
+    \choice $\displaystyle \int_0^2 \frac{1}{1-x^2} \d x$
+\end{choices}
+\vspace{\stretch{1}}
+
+\question[1]
+把有理函數$\displaystyle f(x)=\frac{1}{(x^2+1)(x^2+x+1)}$化為部分分式的和，需要拆項為
+\begin{choices}
+    \choice $\displaystyle \frac{C}{x^2+1}$和$\displaystyle \frac{D}{x^2+x+1}$
+    \choice $\displaystyle \frac{Ax+C}{x^2+1}$和$\displaystyle \frac{D}{x^2+x+1}$
+    \choice $\displaystyle \frac{Ax+C}{x^2+1}$和$\displaystyle \frac{Bx+D}{x^2+x+1}$
+    \choice $\displaystyle \frac{C}{x^2+1}$和$\displaystyle \frac{Bx+D}{x^2+x+1}$
+\end{choices}
+\vspace{\stretch{1}}
+
+\end{questions}
+
+\newpage %---------------------------------------------------
+
+\subsection{定積分應用}
+
+\begin{questions}
+
+\question
+\important 直角座標下由$y=f(x)$、$y=g(x)$、$x=a$、$x=b$圍成圖形的面積：
+\begin{align*}
+    A=\int_a^b \left| f(x)-g(x) \right| \d x
+\end{align*}
+
+\unimportant 極座標下由$r=r_1(\theta)$、$r=r_2(\theta)$，$r_1(\theta) \leq r_2(\theta)$，$\alpha \leq \theta \leq \beta$圍成圖形的面積：
+\begin{align*}
+    A=\frac{1}{2}\int_{\alpha}^{\beta} \left[ r_2^2(\theta) - r_1^2(\theta) \right] \d x
+\end{align*}
+\vspace{\stretch{1}}
+
+\question[1]
+求直線$y=2x+3$與拋物線$y=x^2$所圍成圖形的面積。
+\vspace{\stretch{2}}
+
+\bonusquestion
+\unimportant 求$r=2a \cos \theta$所圍成圖形的面積。
+\vspace{\stretch{2}}
+
+\newpage %---------------------------------------------------
+
+\question
+有一個$y=x^2$與$y=1$及$x=0$所圍成在第一象限內的圖形。
+\begin{parts}
+
+    \part[1]
+    求其繞$x$軸旋轉一週得到的旋轉體的體積。
+    \vspace{\stretch{2}}
+    \part[1]
+    求其繞$y$軸旋轉一週得到的旋轉體的體積。
+    \vspace{\stretch{2}}
+    \part
+    \unimportant 求其繞直線$y=x+1$旋轉一週得到的旋轉體的體積。
+    \vspace{\stretch{2}}
+    
+\end{parts}
+
+\newpage %---------------------------------------------------
+
+\question
+\important 本題有兩小問。
+\begin{parts}
+
+    \part[1]
+    求曲線$y=x^2$，直線$y=0$及$x=3$所圍成的圖形的面積。
+    \vspace{\stretch{2}}
+
+    \part[1]
+    將上述平面圖形繞$y$軸旋轉一週，求所得立體的體積。
+    \vspace{\stretch{2}}
+
+\end{parts}
+
+\end{questions}
+
+\newpage %---------------------------------------------------
+
+\section{常微分方程}
+
+\subsection{微分方程的階數}
+
+\begin{questions}
+
+\question[1]
+微分方程$y''=2x^2+3$的階數為
+\begin{choices}
+    \choice 1
+    \choice 2
+    \choice 3
+    \choice 4
+\end{choices}
+\vspace{\stretch{1}}
+
+\question[1]
+$xy(y')^2-yy'-x=0$為\fillin[Blank]階的微分方程。
+\vspace{\stretch{1}}
+
+\question[1]
+$\displaystyle L \frac{\d^2 Q}{\d t^2} +Q^3 \frac{\d Q}{\d t} +Q=0$為\fillin[Blank]階的微分方程。
+\vspace{\stretch{1}}
+    
+\end{questions}
+
+\newpage %---------------------------------------------------
+
+\subsection{一階微分方程的種類及解法}
+
+\begin{questions}
+
+\question
+\important 一階非齊次線性微分方程$\displaystyle \frac{\d y}{\d x} +P(x)y = Q(x)$的通解公式為
+\begin{align*}
+    y=\left[ \int Q(x) e^{\int P(x) \d x} \d x + C \right]e^{- \int P(x) \d x}
+\end{align*}
+\vspace{\stretch{1}}
+
+\question
+求解下列微分方程。
+\begin{parts}
+
+    \part[1]
+    $\displaystyle xy'-y \ln y = 0$
+    \vspace{\stretch{2}}
+    \part[1]
+    $\displaystyle \frac{\d y}{\d x}=10^{x+y}$
+    \vspace{\stretch{2}}
+    \newpage %---------------------------------------------------
+    \part[1]
+    \important $\displaystyle (x^2-1)y'+2xy-\cos x=0$
+    \vspace{\stretch{2}}
+    \part[1]
+    \important $\displaystyle y'+y \sin x = e^{\cos x}$
+    \vspace{\stretch{2}}
+
+\end{parts}
+    
+\end{questions}
+
+\newpage %---------------------------------------------------
+
+\subsection{可降階的高階微分方程求解}
+
+\begin{questions}
+
+\question
+求解下列微分方程。
+\begin{parts}
+
+    \part[1]
+    $\displaystyle y'''=\sin 2x$
+    \vspace{\stretch{2}}
+    \bonuspart
+    \unimportant 求微分方程$\displaystyle y''+2xy'^2=0$滿足初始條件$\displaystyle y(0)=1, y'(0)=-\frac{1}{2}$的特解。
+    \vspace{\stretch{2}}
+    \bonuspart
+    \unimportant 求微分方程$\displaystyle yy''+y'^2=y'$的通解。
+    \vspace{\stretch{2}}
+    \newpage %---------------------------------------------------
+    \bonuspart
+    \unimportant 求微分方程$\displaystyle y'''=\frac{3x^2}{1+x^3}y''$滿足初始條件$\displaystyle y(0)=0, y'(0)=1, y''(0)=4$的特解。
+    \vspace{\stretch{2}}
+    \part[1]
+    \unimportant \important $\displaystyle y''-y'=x$
+    \vspace{\stretch{2}}
+
+\end{parts}
+    
+\end{questions}
+
+\newpage %---------------------------------------------------
+
+\subsection{高階常係數線性齊次（非齊次）微分方程}
+
+\begin{questions}
+
+\question
+對於二階常係數齊次線性微分方程$y''+py'+qy=0$，先由其特徵方程$r^2+pr+q=0$求出解$r_1, r_2$，若
+\begin{enumerate}
+    \item $r_1, r_2$為兩個不相等的實根，微分方程通解為$\displaystyle y=C_1 e^{r_1 x}+C_2 e^{r_2 x}$；
+    \item $r_1, r_2$為兩個相等的實根，微分方程通解為$\displaystyle y=(C_1 + C_2 x) e^{r_1 x}$；
+    \item $r_1, r_2$為兩個共軛虛根$\alpha \pm \beta i$，微分方程通解為$\displaystyle y=e^{\alpha x}(C_1 \cos \beta x + C_2 \sin \beta x)$。
+\end{enumerate}
+\vspace{\stretch{1}}
+
+\question
+對於二階常係數非齊次線性微分方程$y''+py'+qy=P(x)e^{kx}$的特解，首先設$Q(x)=a_0+a_1x+a_2x^2+ \dots +a_nx^n$與$P(x)$次數相同，再
+\begin{enumerate}
+    \item 若$k$非特徵值，則特解為$y^*=Q(x)e^{kx}$；
+    \item 若$k$與一個特徵值相同，則特解為$y^*=xQ(x)e^{kx}$；
+    \item 若$k$與兩個特徵值相同，則特解為$y^*=x^2Q(x)e^{kx}$。
+\end{enumerate}
+\vspace{\stretch{1}}
+
+\newpage %---------------------------------------------------
+
+\question
+求解下列微分方程。
+\begin{parts}
+
+    \part[1]
+    $\displaystyle \frac{\d^2 y}{\d x^2}-2\frac{\d y}{\d x} +5y=0$
+    \vspace{\stretch{2}}
+    \part[1]
+    $\displaystyle y''+6y'+9y=0$
+    \vspace{\stretch{2}}
+    \part[1]
+    $\displaystyle y''-4y'+3=0, y|_{x=0}=6, y'|_{x=0}=10  $
+    \vspace{\stretch{2}}
+    \newpage %---------------------------------------------------
+    \part[1]
+    \important $\displaystyle y''+6y'+9y=(3x+1)e^{3x}$
+    \vspace{\stretch{2}}
+    \part[1]
+    $\displaystyle y''+3y'+2y=3xe^{-x}$
+    \vspace{\stretch{2}}
+
+\end{parts}
+
+\end{questions}
+
+\end{document}
